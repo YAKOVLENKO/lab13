@@ -59,8 +59,8 @@ int main(int argc, char* argv[]) {
 
     account["first_name"] = data.first_name;
     account["last_name"] = data.last_name;
-    account["email_nickname"] = data.email.nickname;
-    account["email_server"] = data.email.server;
+    account["email"]["email_nickname"] = data.email.nickname;
+    account["email"]["email_server"] = data.email.server;
     account["age"] = data.age;
     account["phone"] = data.phone;
 

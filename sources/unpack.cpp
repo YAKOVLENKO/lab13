@@ -29,8 +29,8 @@ int main(int argc, char* argv[]) {
 
     data_back.first_name = account.at("first_name").get<std::string>();
     data_back.last_name = account.at("last_name").get<std::string>();
-    data_back.email.server = account.at("email_server").get<std::string>();
-    data_back.email.nickname = account.at("email_nickname").get<std::string>();
+    data_back.email.server = account.at("email").at("email_server").get<std::string>();
+    data_back.email.nickname = account.at("email").at("email_nickname").get<std::string>();
     data_back.age = account.at("age").get<size_t>();
     data_back.phone = account.at("phone").get<std::string>();
 
