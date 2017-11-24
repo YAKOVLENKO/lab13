@@ -51,7 +51,6 @@ int main(int argc, char* argv[]) {
     std::cout << "Email:" << std::endl;
     std::cin >> data_email;
     correct_data(data_email, data.email);
-    std::cout << data.email.server << ' ' << data.email.nickname << std::endl;
     std::cout << "Age (optional):" << std::endl;
     std::cin >> data.age;
     std::cout << "Phone (optional):" << std::endl;
