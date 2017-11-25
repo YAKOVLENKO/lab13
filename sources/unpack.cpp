@@ -31,14 +31,27 @@ int main(int argc, char* argv[]) {
     data_back.last_name = account.at("last_name").get<std::string>();
     data_back.email.server = account.at("email").at("email_server").get<std::string>();
     data_back.email.nickname = account.at("email").at("email_nickname").get<std::string>();
-    data_back.age = account.at("age").get<size_t>();
+    try
+    {
+    	data_back.age = account.at("age").get<size_t>();
+     }
+    catch(...)
+    {
+    data_back.age = 0;
+    }
+    try
+    {
     data_back.phone = account.at("phone").get<std::string>();
+    }
+    catch(...){};
 
     std::cout << "[Person]" << std::endl;
     std::cout << "First name: " << data_back.first_name << std::endl;
     std::cout << "Last name: " << data_back.last_name << std::endl;
     std::cout << "Email: " << data_back.email.nickname + "@" + data_back.email.server << std::endl;
-    std::cout << "Age: " << data_back.age << std::endl;
-    std::cout << "Phone: " << data_back.phone << std::endl;
+    if(data_back.age != 0)
+        std::cout << "Age: " << data_back.age << std::endl;
+    if(!data_back.phone.empty())
+        std::cout << "Phone: " << data_back.phone << std::endl;
     return 0;
 }

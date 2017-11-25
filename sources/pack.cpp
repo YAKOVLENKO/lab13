@@ -52,16 +52,27 @@ int main(int argc, char* argv[]) {
     std::cin >> data_email;
     correct_data(data_email, data.email);
     std::cout << "Age (optional):" << std::endl;
-    std::cin >> data.age;
+    try{
+    std::string age;
+    std::cin.ignore();
+    std::getline(std::cin, age);
+    if(!age.empty() && std::stoi(age) > 0)
+    	data.age = std::stoi(age);
+    else 
+	data.age = 0;
+    }
+    catch(...){data.age = 0;}
     std::cout << "Phone (optional):" << std::endl;
-    std::cin >> data.phone;
+    std::getline(std::cin, data.phone);
 
     account["first_name"] = data.first_name;
     account["last_name"] = data.last_name;
     account["email"]["email_nickname"] = data.email.nickname;
     account["email"]["email_server"] = data.email.server;
-    account["age"] = data.age;
-    account["phone"] = data.phone;
+	if (data.age != 0)     
+	account["age"] = data.age;
+if (!data.phone.empty())    
+account["phone"] = data.phone;
 
     js << account;
     js.close();
